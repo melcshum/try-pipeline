@@ -20,5 +20,6 @@ class ProductsTableSeeder extends Seeder
         Product::create([
             'product_name' => 'Huawei GR5 2017',
             'product_description' => 'Andriod Smart Phone'
-
+        ]);
+    }
 }
