@@ -14,8 +14,8 @@ $dbName = env('DB_DATABASE', 'forge');
 $dbUser = env('DB_USERNAME', 'forge');
 $dbPassword = env('DB_PASSWORD', '');
 
-if (env('CLEARDB_DATABASE_URL')) {
-    $databaseUrl = parse_url(env('DATABASE_URL'));
+if (getenv('CLEARDB_DATABASE_URL')) {
+    $databaseUrl = parse_url(getenv('DATABASE_URL'));
 
     $dbHost = $databaseUrl['host'];
     $dbPort = $databaseUrl['port'];
