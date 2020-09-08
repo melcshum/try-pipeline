@@ -15,10 +15,11 @@ $dbUser = env('DB_USERNAME', 'forge');
 $dbPassword = env('DB_PASSWORD', '');
 
 if (getenv('CLEARDB_DATABASE_URL')) {
-    $databaseUrl = parse_url(getenv('DATABASE_URL'));
+    $databaseUrl = parse_url(getenv('CLEARDB_DATABASE_URL'));
 
-    $dbHost = $databaseUrl['host'];
-    $dbPort = $databaseUrl['port'];
+
+    $dbHost = $databaseUrl['host']??null;
+    $dbPort = $databaseUrl['port']??3306;
     $dbName = substr($databaseUrl['path'], 1);
     $dbUser = $databaseUrl['user'];
     $dbPassword = $databaseUrl['pass'];
@@ -29,7 +30,7 @@ $redisPort = env('REDIS_PORT', 6379);
 $redisPassword = env('REDIS_PASSWORD', null);
 
 if (env('REDIS_URL')) {
-    $redisUrl = parse_url(env('REDIS_URL'));
+    $redisUrl = parse_url(getenv('REDIS_URL'));
 
     $redisHost = $redisUrl['host'];
     $redisPort = $redisUrl['port'];
